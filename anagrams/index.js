@@ -8,46 +8,59 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {
-    //make a character map object from each string - create a helper function to help with this
-    // compare if the length of one object matches the other
-        //return false if not matching
+
+
+//SOLN 1
+// function anagrams(stringA, stringB) {
+//     //make a character map object from each string - create a helper function to help with this
+//     // compare if the length of one object matches the other
+//         //return false if not matching
     
-    //loop through one object
-        // check that the value of the current key in the loop matches the value of that key in the other object
-            //if not, return false;
+//     //loop through one object
+//         // check that the value of the current key in the loop matches the value of that key in the other object
+//             //if not, return false;
 
-    // return true
+//     // return true
 
-    const stringAMap = createsCharMap(stringA);
-    const stringBMap = createsCharMap(stringB);
+//     const stringAMap = createsCharMap(stringA);
+//     const stringBMap = createsCharMap(stringB);
 
-    if (Object.keys(stringAMap).length !== Object.keys(stringBMap).length) {
-        return false;
-    }
+//     if (Object.keys(stringAMap).length !== Object.keys(stringBMap).length) {
+//         return false;
+//     }
 
-    for (let char in stringAMap) {
-        if (stringAMap[char] !== stringBMap[char]) {
-            return false;
-        }
-    }
+//     for (let char in stringAMap) {
+//         if (stringAMap[char] !== stringBMap[char]) {
+//             return false;
+//         }
+//     }
 
-    return true;
+//     return true;
+// }
+
+// //Helper function
+// function createsCharMap(str) {
+//     //create a map object
+//    //loop through the str to convert to map by assigning key/value pairs
+//    //return map
+
+//    const charMap = {};
+//    for (let char of str) {
+//         charMap[char] = 1 || charMap[char]++;
+//    }
+//    return charMap
+// }
+
+//SOLN 2
+function anagrams(stringA, stringB) {
+
+    return sortsString(stringA) === sortsString(stringB);
 }
 
+//helper function
 
-function createsCharMap(str) {
-    //create a map object
-   //loop through the str to convert to map by assigning key/value pairs
-   //return map
-
-   const charMap = {};
-
-   for (let char of str) {
-        charMap[char] = 1 || charMap[char]++;
-   }
-
-   return charMap
+const sortsString = function(str) {
+   return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("")
 }
 
 module.exports = anagrams;
