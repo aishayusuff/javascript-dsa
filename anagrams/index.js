@@ -53,7 +53,6 @@
 
 //SOLN 2
 function anagrams(stringA, stringB) {
-
     return sortsString(stringA) === sortsString(stringB);
 }
 
