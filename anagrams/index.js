@@ -8,6 +8,46 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    //make a character map object from each string - create a helper function to help with this
+    // compare if the length of one object matches the other
+        //return false if not matching
+    
+    //loop through one object
+        // check that the value of the current key in the loop matches the value of that key in the other object
+            //if not, return false;
+
+    // return true
+
+    const stringAMap = createsCharMap(stringA);
+    const stringBMap = createsCharMap(stringB);
+
+    if (Object.keys(stringAMap).length !== Object.keys(stringBMap).length) {
+        return false;
+    }
+
+    for (let char in stringAMap) {
+        if (stringAMap[char] !== stringBMap[char]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+function createsCharMap(str) {
+    //create a map object
+   //loop through the str to convert to map by assigning key/value pairs
+   //return map
+
+   const charMap = {};
+
+   for (let char of str) {
+        charMap[char] = 1 || charMap[char]++;
+   }
+
+   return charMap
+}
 
 module.exports = anagrams;
