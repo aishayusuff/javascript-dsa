@@ -88,4 +88,55 @@ function matrix(n) {
   return results;
 }
 
+
+
+//Soln for Linear matrix 
+function linearMatrix (n) {
+    //create a result array
+    //create an initialValue
+    //use for loop to push in n sub arrays into results representing row
+        // use another for loop to create n cols
+        //assign initialValue variable to result[row][col]
+
+    const results = [];
+    let initialValue = 1;
+
+    for (let row = 0; row < n; row++) {
+        results.push([]);
+
+        for (let col = 0; col < n; col++) {
+            results[row][col] = initialValue;
+            initialValue++;
+        }
+    }
+
+    return results;
+
+}
+
+
+
+//Another matrix function that accepts  params for row and col and initialValue
+
+function linearMatrix2 (rows, cols, initialValue = 1) {
+    //create a result array
+    //use for loop to push in row number ofsub arrays into results
+        // use another for loop to create col number of cols
+        //assign initialValue variable to result[row][col]
+
+    const results = [];
+
+    for (let row = 0; row < rows; row++) {
+        results.push([]);
+
+        for(let col = 0; col < cols; col++) {
+            results[row][col] = initialValue;
+            initialValue++;
+        }
+    }
+
+    return results;
+
+}
+
 module.exports = matrix;
