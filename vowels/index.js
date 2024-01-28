@@ -26,6 +26,7 @@
 //     return counter;
 // }
 
+//SOLN 2
 function vowels(str) {
   //use regEEx--> 'g' means [makes sure we don't stop at the first match found]
   //and 'i' means [case insensitive, which removes use of lowerCase]
