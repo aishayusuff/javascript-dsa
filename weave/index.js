@@ -24,6 +24,26 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+    //Define the third queue
+    //create a while loop to check both queues, as long as the result of peek mthd is !undefined
+        //check that queue.peek() exists for each queue
+            //if exist, call add() on new q - and pass in the result of queue.remove()
+    
+        //return q
+
+    const q = new Queue();
+    while (sourceOne.peek() || sourceTwo.peek()) {
+        if (sourceOne.peek()) {
+            q.add(sourceOne.remove());
+        }
+
+        if (sourceTwo.peek()) {
+            q.add(sourceTwo.remove());
+        }
+    }
+
+    return q;
+}
 
 module.exports = weave;
