@@ -43,9 +43,28 @@
 //     }
 // }
 
+
 //SOLN 2
-function steps(n) {
-  
+function steps(n, row = 0, stairs = '') {
+  //Base case
+    // when n === row, return
+
+    //when n === stairs.length, console.log(stairs)
+
+    //when stairs.length <= row, add # to stairs 
+        //else add ' '
+    
+    if (n === row) {
+        return
+    }
+
+    if (n === stairs.length) {
+        console.log(stairs);
+        return steps(n, row + 1, stairs = '')
+    }
+
+    const add = stairs.length <= row ? "#" : " ";
+    steps(n, row, stairs + add);
 }
 
 module.exports = steps;
