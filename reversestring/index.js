@@ -37,9 +37,9 @@ function reverse(str) {
 
 
 //MTHD 4 - WOW Solution
-// function reverse(str) {
-//     return str.split('').reduce((reversed, char) => char + reversed, '')
-// }
+function reverse(str) {
+    return str.split('').reduce((reversed, char) => char + reversed, '')
+}
 
 reverse('asdf');
 
