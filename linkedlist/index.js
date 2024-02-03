@@ -17,6 +17,23 @@ class LinkedList {
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
+
+    size(){
+        //create a counter variable
+        //assign head to a node variable
+        //check that node exists and increment counter while node exists
+        //resassign node to the next node
+
+        let counter = 0
+        let node = this.head;
+        
+        while(node) {
+            counter++
+            node = node.next
+        }
+
+        return counter;
+    }
 }
 
 
