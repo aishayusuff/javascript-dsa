@@ -38,6 +38,23 @@ class LinkedList {
     getFirst() {
         return this.head; //this.head always points to the first node of a linkedList
     }
+
+    getLast(){
+        //handles edge case where no node exist
+        if(!this.head) {
+            return null;
+        }
+
+        let node = this.head
+
+        while(node) {
+            if(!node.next) {
+                return node;
+            }
+
+            node = node.next;
+        }
+    }
 }
 
 
