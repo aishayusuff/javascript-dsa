@@ -34,6 +34,10 @@ class LinkedList {
 
         return counter;
     }
+
+    getFirst() {
+        return this.head; //this.head always points to the first node of a linkedList
+    }
 }
 
 
