@@ -3,71 +3,92 @@
 // See 'directions' document
 
 class Node {
-    constructor(data, next = null) {
-        this.data = data;
-        this.next = next;
-    }
+  constructor(data, next = null) {
+    this.data = data;
+    this.next = next;
+  }
 }
 
 class LinkedList {
-    constructor() {
-        this.head = null
+  constructor() {
+    this.head = null;
+  }
+
+  insertFirst(data) {
+    this.head = new Node(data, this.head);
+  }
+
+  size() {
+    //create a counter variable
+    //assign head to a node variable
+    //check that node exists and increment counter while node exists
+    //resassign node to the next node
+
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      counter++;
+      node = node.next;
     }
 
-    insertFirst(data) {
-        this.head = new Node(data, this.head);
+    return counter;
+  }
+
+  getFirst() {
+    return this.head; //this.head always points to the first node of a linkedList
+  }
+
+  getLast() {
+    //handles edge case where no node exist
+    if (!this.head) {
+      return null;
     }
 
-    size(){
-        //create a counter variable
-        //assign head to a node variable
-        //check that node exists and increment counter while node exists
-        //resassign node to the next node
+    let node = this.head;
 
-        let counter = 0
-        let node = this.head;
-        
-        while(node) {
-            counter++
-            node = node.next
-        }
+    while (node) {
+      if (!node.next) {
+        return node;
+      }
 
-        return counter;
+      node = node.next;
+    }
+  }
+
+  clear() {
+    this.head = null;
+  }
+
+  removeFirst() {
+    if (!this.head) {
+      return;
     }
 
-    getFirst() {
-        return this.head; //this.head always points to the first node of a linkedList
+    this.head = this.head.next;
+  }
+
+  removeLast() {
+    if (!this.head) {
+      return;
     }
 
-    getLast(){
-        //handles edge case where no node exist
-        if(!this.head) {
-            return null;
-        }
-
-        let node = this.head
-
-        while(node) {
-            if(!node.next) {
-                return node;
-            }
-
-            node = node.next;
-        }
+    //check if next node does not exist
+    if (!this.head.next) {
+      this.head = null;
+      return;
     }
 
-    clear() {
-        this.head = null;
+    let previous = this.head;
+    let node = this.head.next;
+
+    while (node.next) {
+      previous = node;
+      node = node.next;
     }
 
-    removeFirst() {
-        if(!this.head) {
-            return;
-        }
-
-        this.head = this.head.next
-    }
+    previous.next = null;
+  }
 }
-
 
 module.exports = { Node, LinkedList };
